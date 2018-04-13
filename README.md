@@ -1,7 +1,7 @@
 # Docker Swarm Vagrant
 
 Vagrantfile to stand up Docker Engine Swarm Mode cluster.
-It requires Docker 1.12+, and run Debian.
+It requires Docker 1.12+, and runs Debian.
 
 ## Quickstart
 
@@ -31,12 +31,9 @@ docker node list
 
 # docker swarm logs
 sudo tail -f /var/log/daemon.log
-
-# set up monitoring
-./setup-monitoring.sh
 ```
 
-Set up monitoring with Grafana, Prometheus & Co.:
+Optionally set up monitoring with Grafana, Prometheus & Co.:
 
 ```
 /vagrant/setup-monitoring.sh
@@ -188,7 +185,7 @@ watch -d -n1 docker ps
 ```
 
 Suspend a node `vagrant suspend worker1`, simulate outage on one node.
-Docker Swarm auto-heal by adding missing containers on remaining nodes to keep `web` service up and running:
+Docker Swarm auto-heals by adding missing containers on remaining nodes to keep `web` service up and running:
 
 ```
 docker node list
